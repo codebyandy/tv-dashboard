@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "auth:google": "node scripts/get-google-refresh-token.mjs"
   },
   "dependencies": {
     "@tanstack/react-query": "^5.51.11",

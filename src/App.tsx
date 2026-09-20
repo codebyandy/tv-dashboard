@@ -4,14 +4,22 @@ import { CountdownBanner } from './components/CountdownBanner'
 import { CalendarList } from './components/CalendarList'
 import { WeatherCard } from './components/WeatherCard'
 import { BusCard } from './components/BusCard'
+import { useCalendar } from './hooks/useCalendar'
+import { useMemo } from 'react'
+import { isFuture } from 'date-fns'
+
+function useNextEvent() {
+  const { data } = useCalendar()
+  return useMemo(() => {
+    if (!data) return null
+    const next = data.find((e) => !e.allDay && isFuture(e.start))
+    if (!next) return null
+    return { title: next.title, start: next.start }
+  }, [data])
+}
 
 function App() {
-  // Temporary mock next-event so the countdown banner has something to render
-  // until Google Calendar is wired up.
-  const mockNext = {
-    title: 'Standup',
-    start: new Date(Date.now() + 19 * 60 * 1000),
-  }
+  const nextEvent = useNextEvent()
 
   return (
     <div className="h-screen w-screen p-12 flex flex-col gap-8">
@@ -20,7 +28,7 @@ function App() {
         <DateLabel />
       </header>
 
-      <CountdownBanner nextEvent={mockNext} />
+      <CountdownBanner nextEvent={nextEvent} />
 
       <main className="flex-1 grid grid-cols-[3fr_2fr] gap-8 min-h-0">
         <CalendarList />
