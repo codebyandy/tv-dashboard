@@ -2,6 +2,8 @@
 
 Just a simple personal TV Dashboard with calendar and transit times, built with React.
 
+![Dashboard screenshot](docs/screenshot.png)
+
 ## Setup
 
 ```bash
