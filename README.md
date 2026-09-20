@@ -12,6 +12,6 @@ cp .env.example .env
 npm run dev
 ```
 
-Fill in `.env` with your credentials. Run `npm run auth:google` for the Google Calendar OAuth flow — it opens a browser, you authorize, and prints your refresh token and calendar ID.
+Fill in `.env` with your credentials. Run `npm run auth:google` for the [Google Calendar](https://console.cloud.google.com) OAuth flow — it opens a browser, you authorize, and prints your refresh token and calendar ID.
 
-Weather uses [Open-Meteo](https://open-meteo.com) (no key needed). Bus uses the OneBusAway Puget Sound API (`TEST` key works).
+Weather uses [Open-Meteo](https://open-meteo.com) (no key needed). Bus uses the [OneBusAway](https://pugetsound.onebusaway.org) Puget Sound API (`TEST` key works).
