@@ -1,4 +1,4 @@
-# tv-dashboard
+# TV Dashboard
 
 Just a simple personal TV Dashboard with calendar and transit times, built with React.
 
@@ -7,27 +7,9 @@ Just a simple personal TV Dashboard with calendar and transit times, built with 
 ```bash
 npm install
 cp .env.example .env
-```
-
-Fill in `.env` with your credentials (see below), then:
-
-```bash
 npm run dev
 ```
 
-## Credentials
+Fill in `.env` with your credentials. Run `npm run auth:google` for the Google Calendar OAuth flow — it opens a browser, you authorize, and prints your refresh token and calendar ID.
 
-**Google Calendar**
-
-1. Create a Desktop OAuth client in [Google Cloud Console](https://console.cloud.google.com) with the Calendar API enabled
-2. Add the client ID and secret to `.env`
-3. Run `npm run auth:google` — browser opens, you authorize, refresh token and calendar ID are printed
-4. Paste both into `.env`
-
-**OneBusAway**
-
-Add your stop ID and route IDs to `.env`. The public `TEST` key works for Puget Sound.
-
-**Weather**
-
-No key needed — uses [Open-Meteo](https://open-meteo.com).
+Weather uses [Open-Meteo](https://open-meteo.com) (no key needed). Bus uses the OneBusAway Puget Sound API (`TEST` key works).
